@@ -15,11 +15,6 @@ function fish_prompt
     # Show the current directory
     printf "In %s " (set_color $green)(prompt_pwd)(set_color normal)
 
-    # Activate the LumApps virtualenv if possible
-    if test $PWD = /home/tvuillemin/LumApps/lumsites; and not test $VIRTUAL_ENV
-        source env/bin/activate.fish
-    end
-
     # Show the current virtualenv
     if test $VIRTUAL_ENV
         printf "using %s " (set_color $blue)(basename $VIRTUAL_ENV)(set_color normal)
