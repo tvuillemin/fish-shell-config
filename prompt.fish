@@ -1,5 +1,5 @@
 set -x VIRTUAL_ENV_DISABLE_PROMPT yes
-
+set -x EDITOR vim
 
 function fish_greeting
     fortune -s | cowsay
