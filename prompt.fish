@@ -1,7 +1,7 @@
 set -x VIRTUAL_ENV_DISABLE_PROMPT yes
 
 function fish_greeting
-    fortune -s fr | cowsay
+    fortune -s | cowsay
 end
 
 
