@@ -22,7 +22,7 @@ function fish_prompt
     # Show the git prompt
     printf "%s" (__fish_git_prompt "on %s ")
 
-	# Print a final $. It should be red if the last command exited with an error.
+    # Print a final $. It should be red if the last command exited with an error.
     if not test $last_status -eq 0
         set_color $red
     else
