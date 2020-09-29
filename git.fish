@@ -16,7 +16,7 @@ alias gbc='git_branch_create'
 
 function git_branch_delete
     if not test -z $argv
-        git branch -d $argv; and git push origin :$argv
+        git branch -D $argv; and git push origin :$argv
     else
         error "Missing the branch name parameter."
     end
