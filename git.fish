@@ -24,6 +24,13 @@ end
 alias gbd='git_branch_delete'
 
 
+function git_branch_update
+    git fetch -p;
+    and git rebase origin/master;
+    and git push --force-with-lease
+end
+alias gbu='git_branch_update'
+
 # Git prompt configuration
 set -g __fish_git_prompt_show_informative_status 1
 set -g __fish_git_prompt_hide_untrackedfiles 1
