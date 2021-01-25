@@ -12,15 +12,27 @@ function fish_prompt
     set_color normal
 
     # Show the current directory
-    printf "In %s " (set_color $green)(prompt_pwd)(set_color normal)
+    printf "%s " (set_color $blue)(prompt_pwd)(set_color normal)
 
     # Show the current virtualenv
     if test $VIRTUAL_ENV
-        printf "using %s " (set_color $blue)(basename $VIRTUAL_ENV)(set_color normal)
+        printf "(%s) " (set_color $blue)(basename $VIRTUAL_ENV)(set_color normal)
     end
 
+    # Show the Kubernetes context
+    set -l kube_ctx (kubectx --current)
+    set -l kube_ns (kubens --current)
+    switch $kube_ctx
+    case "*prod*"
+        printf "%s" (set_color $red)
+    case "*"
+        printf "%s" (set_color $green)
+    end
+    printf "%s/%s" $kube_ctx $kube_ns
+    printf "%s " (set_color normal)
+
     # Show the git prompt
-    printf "%s" (__fish_git_prompt "on %s ")
+    printf "%s " (__fish_git_prompt "%s")
 
     # Print a final $. It should be red if the last command exited with an error.
     if not test $last_status -eq 0

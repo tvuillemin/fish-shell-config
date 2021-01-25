@@ -49,4 +49,4 @@ set -g __fish_git_prompt_color_stagedstate $yellow
 set -g __fish_git_prompt_color_invalidstate $red
 set -g __fish_git_prompt_color_untrackedfiles normal
 set -g __fish_git_prompt_color_cleanstate $green
-set -g __fish_git_prompt_char_stateseparator ' currently '
+set -g __fish_git_prompt_char_stateseparator ''
