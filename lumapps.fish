@@ -1,5 +1,5 @@
 # Exported variables
-set -x GCLOUD $HOME/Google/google-cloud-sdk
+set -x GCLOUD $HOME/.asdf/installs/gcloud/274.0.1
 set -x APPENGINE $GCLOUD/bin/
 
 set -x PATH $PATH $APPENGINE
