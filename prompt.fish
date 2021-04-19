@@ -19,8 +19,9 @@ function fish_prompt
     end
 
     # Show the Kubernetes context
-    set -l kube_ctx (kubectx --current)
-    set -l kube_ns (kubens --current)
+    set -l kube_raw_context (kubectl config get-contexts | grep '*')
+    set -l kube_ctx (echo $kube_raw_context | awk '{print $2}')
+    set -l kube_ns (echo $kube_raw_context | awk '{print $5}')
     switch $kube_ctx
     case "*prod*"
         printf "%s" (set_color $red)
