@@ -23,13 +23,23 @@ function git_branch_delete
 end
 alias gbd='git_branch_delete'
 
-
 function git_branch_update
     git fetch -p;
     and git rebase origin/master;
     and git push --force-with-lease
 end
 alias gbu='git_branch_update'
+
+alias gca='git commit --amend'
+alias gpf='git push --force-with-lease'
+
+function pr_merged
+    set merged_branch (git branch --show-current)
+    git co master
+    git fetch -p
+    git pull --rebase
+    gbd $merged_branch
+end
 
 # Git prompt configuration
 set -g __fish_git_prompt_show_informative_status 1
