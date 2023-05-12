@@ -1,5 +1,8 @@
 set -x VIRTUAL_ENV_DISABLE_PROMPT yes
 
+alias ls="exa"
+alias cat="bat"
+
 function fish_greeting
 end
 
