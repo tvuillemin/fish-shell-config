@@ -3,9 +3,7 @@ set -x VIRTUAL_ENV_DISABLE_PROMPT yes
 function fish_greeting
 end
 
-
 function fish_prompt
-
     # Save the status of the last command for future purposes
     set -l last_status $status
     set_color normal

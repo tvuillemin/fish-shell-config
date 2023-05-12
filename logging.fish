@@ -6,7 +6,6 @@ function info
     printf '\n'
 end
 
-
 function warning
     set_color $yellow
     printf '%s [WARNING] ' (date +'%H:%M:%S')
@@ -14,7 +13,6 @@ function warning
     set_color normal
     printf '\n'
 end
-
 
 function error
     set_color $red
