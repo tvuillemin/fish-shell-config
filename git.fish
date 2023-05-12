@@ -1,7 +1,10 @@
 # Generic aliases
 alias g='git'
 alias gst='git status'
-
+alias gco='git checkout'
+alias gci='git commit'
+alias gca='git commit --amend'
+alias gpf='git push --force-with-lease'
 
 # Customized functions
 function git_branch_create
@@ -12,7 +15,6 @@ function git_branch_create
     end
 end
 alias gbc='git_branch_create'
-
 
 function git_branch_delete
     if not test -z $argv
@@ -26,16 +28,13 @@ alias gbd='git_branch_delete'
 function git_branch_update
     git fetch -p;
     and git rebase origin/master;
-    and git push --force-with-lease
+    and git push --force-with-lease --no-verify
 end
 alias gbu='git_branch_update'
 
-alias gca='git commit --amend'
-alias gpf='git push --force-with-lease'
-
 function pr_merged
     set merged_branch (git branch --show-current)
-    git co master
+    git checkout master
     git fetch -p
     git pull --rebase
     gbd $merged_branch
